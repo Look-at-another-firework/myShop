@@ -1,0 +1,124 @@
+<template>
+  <div id="my-markdown" class="markdown-body">
+    <vue-markdown
+      source="# Store（参考小米商城）
+## 前言
+2022年，因为新型冠状病毒肺炎疫情，学校封校，想着将学的东西做一个汇总，使用`vue`和`element`结合做一个前端的电商项目，在逛`github`的时候发现的一个很不做的demo，将该作品进行二次制作，将项目的一些内容形象一定的修改，查漏补缺，学习他人实现的过程,在这里很感谢作者。最后附上`github`的地址：<https://github.com/hai-27/vue-store>
+
+## 项目简介
+
+本项目前后端分离，前端基于`Vue`+`Vue-router`+`Vuex`+`Element-ui`+`Axios`，参考小米商城实现。
+
+前端包含了11个页面：首页、登录、注册、全部商品、商品详情页、关于我们、我的收藏、购物车、订单结算页面、我的订单以及错误处理页面。
+
+实现了商品的展示、商品分类查询、关键字搜索商品、商品详细信息展示、登录、注册、用户购物车、订单结算、用户订单、用户收藏列表以及错误处理功能。
+
+## 技术栈
+
+- **前端：**`Vue`+`Vue-router`+`Vuex`+`Element-ui`+`Axios`
+
+## 功能模块
+
+### 登录
+
+页面使用了element-ui的`Dialog`实现弹出蒙版对话框的效果，`登录`按钮设置在App.vue根组件，通过`vuex`中的`showLogin`状态控制登录框是否显示。
+
+这样设计是为了既可以通过点击页面中的按钮登录，也可以是用户访问需要登录验证的页面或后端返回需要验证登录的提示后自动弹出登录框，减少了页面的跳转，简化用户操作。
+
+用户输入的数据往往是不可靠的，所以本项目前后端都对登录信息进行了校验，前端基于element-ui的表单校验方式，自定义了校验规则进行校验。
+
+### 注册
+
+页面同样使用了element-ui的`Dialog`实现弹出蒙版对话框的效果，`注册`按钮设置在App.vue根组件，通过父子组件传值控制注册框是否显示。
+
+用户输入的数据往往是不可靠的，所以本项目前后端同样都对注册信息进行了校验，前端基于element-ui的表单校验方式，自定义了校验规则进行校验。
+
+### 首页
+
+首页主要是对商品的展示，有轮播图展示推荐的商品，分类别对热门商品进行展示。
+
+### 全部商品
+
+全部商品页面集成了全部商品展示、商品分类查询，以及根据关键字搜索商品结果展示。
+
+### 商品详情页
+
+商品详情页主要是对某个商品的详细信息进行展示，用户可以在这里把喜欢的商品加入购物车或收藏列表。
+
+### 我的购物车
+
+购物车采用vuex实现，页面效果参考了小米商城的购物车。
+
+
+### 订单结算
+
+用户在购物车选择了准备购买的商品后，点击“去结算”按钮，会来到该页面。
+用户在这里选择收货地址，确认订单的相关信息，然后确认购买。
+
+### 我的收藏
+
+用户在商品的详情页，可以通过点击加入 喜欢 按钮，把喜欢的商品加入到收藏列表。
+
+### 我的订单
+
+对用户的所有订单进行展示。
+
+## 运行项目
+```
+1. Clone project
+
+git clone https://gitee.com/the_betterest/my-shop.git
+
+2. Project setup
+
+cd vue-store
+npm install
+
+3. Compiles and hot-reloads for development
+
+npm run serve
+
+4. Compiles and minifies for production
+
+npm run build
+```
+
+github原创**作者** [hai-27](https://github.com/hai-27)
+创作**作者** [Get better](https://gitee.com/the_betterest)
+
+2022年4月27日"
+    ></vue-markdown>
+  </div>
+</template>
+
+<script>
+import VueMarkdown from 'vue-markdown'
+export default {
+  components: {
+    VueMarkdown
+  },
+  data() {
+    return {
+      // md: import('../assets/README.md')
+    }
+  }
+  // methods: {
+  //   async getReadme() {
+  //     const result = await this.$API.home.reqGetReadme()
+  //     this.md = result
+  //   }
+  // },
+  // activated() {
+  //   this.getReadme()
+  // }
+}
+</script>
+
+<style>
+@import '../assets/css/github-markdown.css';
+.markdown-body {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+</style>
